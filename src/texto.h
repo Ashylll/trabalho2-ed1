@@ -76,6 +76,11 @@ char getA_texto(TEXTO t);
 /// @return ponteiro para string com txto (apenas leitura)
 const char* getTXTO_texto(TEXTO t);
 
+/// @brief retorna o tamanho do texto
+/// @param t texto
+/// @return número inteiro de caracteres do texto
+int tamanho_texto(TEXTO t);
+
 /* ===================== */
 
 /* === Operações set === */

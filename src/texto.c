@@ -189,6 +189,15 @@ const char* getTXTO_texto(TEXTO t){
     return texto->txto;
 }
 
+int tamanho_texto(TEXTO t) {
+    assert (t);
+    stTexto *texto = t;
+
+    if (!texto->txto) return 0;
+
+    return (int)strlen(texto->txto);
+}
+
 bool setI_texto(TEXTO t, const int i){
     if (!t) return false;
 
