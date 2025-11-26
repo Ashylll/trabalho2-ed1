@@ -25,7 +25,7 @@ typedef void* RETANGULO;
 /// @param corb cor da borda (string)
 /// @param corp cor de preenchimento (string)
 /// @return ponteiro para o retângulo; NULL se parâmetros inválidos ou falha de memória
-RETANGULO criar_retangulo(int i, double x, double y, double w, double h, const char* corb, const char* corp);
+RETANGULO criar_retangulo(const int i, const double x, const double y, const double w, const double h, const char* corb, const char* corp);
 
 /// @brief retorna a área do retângulo    
 /// @param r retângulo
@@ -90,31 +90,31 @@ const char* getCORP_retangulo(RETANGULO r);
 /// @param r retângulo
 /// @param i identificador 
 /// @return true se a operação foi bem sucedida; false se r == NULL
-bool setI_retangulo(RETANGULO r, int i);
+bool setI_retangulo(RETANGULO r, const int i);
 
 /// @brief atribui uma coordenada x à âncora do retângulo
 /// @param r retângulo
 /// @param x coordenada x
 /// @return true se a operação foi bem sucedida; false se r == NULL
-bool setX_retangulo(RETANGULO r, double x);
+bool setX_retangulo(RETANGULO r, const double x);
 
 /// @brief atribui uma coordenada y à âncora do retângulo
 /// @param r retângulo
 /// @param y coordenada y
 /// @return true se a operação foi bem sucedida; false se r == NULL
-bool setY_retangulo(RETANGULO r, double y);
+bool setY_retangulo(RETANGULO r, const double y);
 
 /// @brief atribui uma largura ao retângulo
 /// @param r retângulo
 /// @param w largura > 0
 /// @return true se a operação foi bem sucedida; false se r == NULL || w <= 0
-bool setW_retangulo(RETANGULO r, double w);
+bool setW_retangulo(RETANGULO r, const double w);
 
 /// @brief atribui uma altura ao retângulo
 /// @param r retângulo
 /// @param h altura > 0
 /// @return true se a operação foi bem sucedida; false se r == NULL || h <= 0
-bool setH_retangulo(RETANGULO r, double h);
+bool setH_retangulo(RETANGULO r, const double h);
 
 /// @brief atribui uma cor de borda ao retângulo
 /// @param r retângulo

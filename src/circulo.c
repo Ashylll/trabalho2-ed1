@@ -14,7 +14,7 @@ typedef struct stCirculo{
     char *corb, *corp;
 } stCirculo;
 
-CIRCULO criar_circulo(int i, double x, double y, double r, const char *corb, const char *corp){
+CIRCULO criar_circulo(const int i, const double x, const double y, const double r, const char *corb, const char *corp){
     if(!corb || !corp || r <= 0){
         fprintf(stderr, "Parâmetros inválidos\n");
         return NULL;
@@ -52,9 +52,9 @@ CIRCULO criar_circulo(int i, double x, double y, double r, const char *corb, con
 
 double area_circulo(CIRCULO c){
     assert (c != NULL);
-    stCirculo *circulo = (stCirculo*)c;
+    const stCirculo *circulo = (stCirculo*)c;
 
-    double area = PI * circulo->r * circulo->r;
+    const double area = PI * circulo->r * circulo->r;
     
     return area;
 }
@@ -112,7 +112,7 @@ const char* getCORP_circulo(CIRCULO c){
     return circulo->corp;
 }
 
-bool setI_circulo(CIRCULO c, int i){
+bool setI_circulo(CIRCULO c, const int i){
     if (!c) return false;
 
     stCirculo *circulo = (stCirculo*)c; 
@@ -120,7 +120,7 @@ bool setI_circulo(CIRCULO c, int i){
     return true;
 }
 
-bool setX_circulo(CIRCULO c, double x){
+bool setX_circulo(CIRCULO c, const double x){
     if (!c) return false;
 
    stCirculo *circulo = (stCirculo*)c; 
@@ -129,7 +129,7 @@ bool setX_circulo(CIRCULO c, double x){
     return true;
 }
 
-bool setY_circulo(CIRCULO c, double y){
+bool setY_circulo(CIRCULO c, const double y){
     if (!c) return false;
 
     stCirculo *circulo = (stCirculo*)c; 
@@ -138,7 +138,7 @@ bool setY_circulo(CIRCULO c, double y){
     return true;
 }
 
-bool setR_circulo(CIRCULO c, double r){
+bool setR_circulo(CIRCULO c, const double r){
     if (!c || r <= 0) return false;
 
     stCirculo *circulo = (stCirculo*)c; 
@@ -179,4 +179,12 @@ bool setCORP_circulo(CIRCULO c, const char* corp){
     circulo->corp = novo;
 
     return true;
+}
+
+void anteparo_circulo(CIRCULO c) {
+    if (!c) return;
+
+    stCirculo *circulo = (stCirculo*)c;
+
+
 }

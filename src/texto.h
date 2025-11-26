@@ -20,7 +20,7 @@ typedef void* TEXTO;
 /// @param a posição da âncora no texto: i(início), m(meio), f(fim)
 /// @param txto conteúdo do texto a ser criado
 /// @return ponteiro para o texto; NULL se parâmetros inválidos ou falha de memória
-TEXTO criar_texto(int i, double x, double y, const char* corb, const char* corp, char a, const char* txto);
+TEXTO criar_texto(const int i, const double x, const double y, const char* corb, const char* corp, const char a, const char* txto);
 
 
 /// @brief calcula a área do texto
@@ -84,19 +84,19 @@ const char* getTXTO_texto(TEXTO t);
 /// @param t texto
 /// @param i identificador
 /// @return true se a operação foi bem sucedida; false se t == NULL
-bool setI_texto(TEXTO t, int i);
+bool setI_texto(TEXTO t, const int i);
 
 /// @brief atribui uma coordenada x ao texto
 /// @param t texto
 /// @param x coordenada x
 /// @return true se a operação foi bem sucedida; false se t == NULL
-bool setX_texto(TEXTO t, double x);
+bool setX_texto(TEXTO t, const double x);
 
 /// @brief atribui uma coordenada y ao texto
 /// @param t texto
 /// @param y coordenada y
 /// @return true se a operação foi bem sucedida; false se t == NULL
-bool setY_texto(TEXTO t, double y);
+bool setY_texto(TEXTO t, const double y);
 
 /// @brief atribui uma cor de borda ao texto
 /// @param t texto
@@ -114,7 +114,7 @@ bool setCORP_texto(TEXTO t, const char* corp);
 /// @param t texto
 /// @param a âncora do texto
 /// @return true se a operação foi bem sucedida; false se t == NULL || a inválido
-bool setA_texto(TEXTO t, char a);
+bool setA_texto(TEXTO t, const char a);
 
 /// @brief atribui um conteúdo ao texto
 /// @param t texto
@@ -130,10 +130,10 @@ bool setTXTO_texto(TEXTO t, const char* txto);
 /// @brief muda o estilo de um texto
 /// @param t texto t
 /// @param fFamily família do estilo (sans-serif, serif, cursive)
-/// @param fWeight expessura do estilo (n: normal, b: bold, b+: bolder, l: lighter)
+/// @param fWeight espessura do estilo (n: normal, b: bold, b+: bolder, l: lighter)
 /// @param fSize tamanho do estilo
 /// @return true se a operação foi bem sucedida; false se t == NULL || fFamily == NULL || fWeight == NULL || fSize <= 0
-bool mudar_estilo(TEXTO t, const char* fFamily, const char* fWeight, int fSize);
+bool mudar_estilo(TEXTO t, const char* fFamily, const char* fWeight, const int fSize);
 
 /// @brief obtém a font-family atual
 /// @param t texto
@@ -142,7 +142,7 @@ const char* getFFamily_texto(TEXTO t);
 
 /// @brief obtém o font-weight atual
 /// @param t texto
-/// @return expessura da fonte do texto
+/// @return espessura da fonte do texto
 const char* getFWeight_texto(TEXTO t);
 
 /// @brief obtém o font-size atual (px)

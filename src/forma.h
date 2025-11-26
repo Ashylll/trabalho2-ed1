@@ -20,7 +20,7 @@ typedef void* FORMA;
 
 /// @brief registra um id lido no arquivo .geo, atualizando o maior id global
 /// @param id identificador da forma
-void registrar_id(int id);
+void registrar_id(const int id);
 
 /// @brief gera um novo id único para clones
 /// @return id novo, incrementando o maior id atual
@@ -78,14 +78,14 @@ bool getXY_forma(FORMA f, double* x, double* y);
 /// @param x coordenada x
 /// @param y coordenada y
 /// @return true se a operação foi bem sucedida; false se f == NULL
-bool setXY_forma(FORMA f, double x, double y);
+bool setXY_forma(FORMA f, const double x, const double y);
 
 /// @brief desloca a forma nas coordenadas (x,y)
 /// @param f forma
 /// @param dx deslocamento no eixo x
 /// @param dy deslocamento no eixo y
 /// @return true se a operação foi bem sucedida; false se f == NULL
-bool deslocar_forma(FORMA f, double dx, double dy);
+bool deslocar_forma(FORMA f, const double dx, const double dy);
 
 /* ===================== */
 

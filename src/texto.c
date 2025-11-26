@@ -25,7 +25,7 @@ typedef struct stTexto{
     stEstilo estilo;
 } stTexto;
 
-TEXTO criar_texto(int i, double x, double y, const char* corb, const char* corp, char a, const char* txto){
+TEXTO criar_texto(const int i, const double x, const double y, const char* corb, const char* corp, const char a, const char* txto){
     if (!corb || !corp || !txto) {
         fprintf(stderr, "Cores/texto inválidos\n");
         return NULL;
@@ -189,7 +189,7 @@ const char* getTXTO_texto(TEXTO t){
     return texto->txto;
 }
 
-bool setI_texto(TEXTO t, int i){
+bool setI_texto(TEXTO t, const int i){
     if (!t) return false;
 
     stTexto *texto = (stTexto*)t;
@@ -198,7 +198,7 @@ bool setI_texto(TEXTO t, int i){
     return true;
 }
 
-bool setX_texto(TEXTO t, double x){
+bool setX_texto(TEXTO t, const double x){
     if (!t) return false;
 
     stTexto *texto = (stTexto*)t;
@@ -207,7 +207,7 @@ bool setX_texto(TEXTO t, double x){
     return true;
 }
 
-bool setY_texto(TEXTO t, double y){
+bool setY_texto(TEXTO t, const double y){
     if (!t) return false;
 
     stTexto *texto = (stTexto*)t;
@@ -250,7 +250,7 @@ bool setCORP_texto(TEXTO t, const char *corp){
     return true;
 }
 
-bool setA_texto(TEXTO t, char a){
+bool setA_texto(TEXTO t, const char a){
     if (!t) return false;
     if (a != 'i' && a != 'm' && a != 'f') return false;
 
@@ -277,7 +277,7 @@ bool setTXTO_texto(TEXTO t, const char *txto){
     return true;
 }
 
-bool mudar_estilo(TEXTO t, const char *fFamily, const char *fWeight, int fSize){
+bool mudar_estilo(TEXTO t, const char *fFamily, const char *fWeight, const int fSize){
     if (!t || !fFamily || !fWeight || fSize <= 0) return false;
 
     stTexto *texto = (stTexto*)t;

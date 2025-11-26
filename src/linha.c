@@ -13,7 +13,7 @@ typedef struct stLinha {
     char *cor;
 } stLinha;
 
-LINHA criar_linha(int i, double x1, double y1, double x2, double y2, const char* cor){
+LINHA criar_linha(const int i, const double x1, const double y1, const double x2, const double y2, const char* cor){
     if (!cor) {
         fprintf(stderr, "Cor inválida\n");
         return NULL;
@@ -117,7 +117,7 @@ const char* getCOR_linha(LINHA l){
 
 // Funções set
 
-bool setI_linha(LINHA l, int i){
+bool setI_linha(LINHA l, const int i){
     if (!l) return false;
 
     stLinha *linha = (stLinha*)l; 
@@ -126,7 +126,7 @@ bool setI_linha(LINHA l, int i){
     return true;
 }
 
-bool setX1_linha(LINHA l, double x1){
+bool setX1_linha(LINHA l, const double x1){
     if (!l) return false;
 
     stLinha *linha = (stLinha*)l; 
@@ -135,7 +135,7 @@ bool setX1_linha(LINHA l, double x1){
     return true;
 }
 
-bool setY1_linha(LINHA l, double y1){
+bool setY1_linha(LINHA l, const double y1){
     if (!l) return false;
 
     stLinha *linha = (stLinha*)l; 
@@ -144,7 +144,7 @@ bool setY1_linha(LINHA l, double y1){
     return true;
 }
 
-bool setX2_linha(LINHA l, double x2){
+bool setX2_linha(LINHA l, const double x2){
     if (!l) return false;
 
     stLinha *linha = (stLinha*)l; 
@@ -153,7 +153,7 @@ bool setX2_linha(LINHA l, double x2){
     return true;
 }
 
-bool setY2_linha(LINHA l, double y2){
+bool setY2_linha(LINHA l, const double y2){
     if (!l) return false;
 
     stLinha *linha = (stLinha*)l; 

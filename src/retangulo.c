@@ -11,7 +11,7 @@ typedef struct stRetangulo {
     char *corb, *corp;
 } stRetangulo;
 
-RETANGULO criar_retangulo(int i, double x, double y, double w, double h, const char* corb, const char* corp){
+RETANGULO criar_retangulo(const int i, const double x, const double y, const double w, const double h, const char* corb, const char* corp){
     if (!corb || !corp) {
         fprintf(stderr, "Cores inválidas\n");
         return NULL;
@@ -123,7 +123,7 @@ const char* getCORP_retangulo(RETANGULO r){
     return retangulo->corp;
 }
 
-bool setI_retangulo(RETANGULO r, int i){
+bool setI_retangulo(RETANGULO r, const int i){
     if (!r) return false;
 
     stRetangulo *retangulo = (stRetangulo*)r; 
@@ -132,7 +132,7 @@ bool setI_retangulo(RETANGULO r, int i){
     return true;
 }
 
-bool setX_retangulo(RETANGULO r, double x){
+bool setX_retangulo(RETANGULO r, const double x){
     if (!r) return false;
 
    stRetangulo *retangulo = (stRetangulo*)r; 
@@ -141,7 +141,7 @@ bool setX_retangulo(RETANGULO r, double x){
     return true;
 }
 
-bool setY_retangulo(RETANGULO r, double y){
+bool setY_retangulo(RETANGULO r, const double y){
     if (!r) return false;
 
     stRetangulo *retangulo = (stRetangulo*)r; 
@@ -150,7 +150,7 @@ bool setY_retangulo(RETANGULO r, double y){
     return true;
 }
 
-bool setW_retangulo(RETANGULO r, double w){
+bool setW_retangulo(RETANGULO r, const double w){
     if (!r || w <= 0) return false;
 
     stRetangulo *retangulo = (stRetangulo*)r; 
@@ -159,7 +159,7 @@ bool setW_retangulo(RETANGULO r, double w){
     return true;
 }
 
-bool setH_retangulo(RETANGULO r, double h){
+bool setH_retangulo(RETANGULO r, const double h){
     if (!r || h <= 0) return false;
 
     stRetangulo *retangulo = (stRetangulo*)r; 

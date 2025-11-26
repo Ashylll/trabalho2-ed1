@@ -40,7 +40,7 @@ FORMA criar_forma(char tipo, void* handle){
 
 static int maior_id = 0;
 
-void registrar_id(int id){
+void registrar_id(const int id){
     if (id > maior_id) maior_id = id;
 }
 
@@ -122,7 +122,7 @@ bool getXY_forma(FORMA f, double *x, double *y){
     return true;
 }
 
-bool setXY_forma(FORMA f, double x, double y){
+bool setXY_forma(FORMA f, const double x, const double y){
     if (!f) return false;
 
     stForma* forma = (stForma*)f;
@@ -145,7 +145,7 @@ bool setXY_forma(FORMA f, double x, double y){
     }
 }
 
-bool deslocar_forma(FORMA f, double dx, double dy){
+bool deslocar_forma(FORMA f, const double dx, const double dy){
     if (!f) return false;
 
     double x, y;

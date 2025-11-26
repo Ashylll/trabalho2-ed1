@@ -23,7 +23,7 @@ typedef void* CIRCULO;
 /// @param corb cor da borda (string)
 /// @param corp cor de preenchimento (string)
 /// @return ponteiro para o círculo; NULL se parâmetros inválidos ou falha de memória
-CIRCULO criar_circulo(int i, double x, double y, double r, const char* corb, const char* corp);
+CIRCULO criar_circulo(const int i, const double x, const double y, const double r, const char* corb, const char* corp);
 
 /// @brief retorna a área do círculo    
 /// @param c círculo
@@ -82,25 +82,25 @@ const char* getCORP_circulo(CIRCULO c);
 /// @param c círculo
 /// @param i identificador
 /// @return true se a operação foi bem sucedida; false se c == NULL
-bool setI_circulo(CIRCULO c, int i);
+bool setI_circulo(CIRCULO c, const int i);
 
 /// @brief atribui uma coordenada x ao círculo
 /// @param c círculo
 /// @param x coordenada x
 /// @return true se a operação foi bem sucedida; false se c == NULL
-bool setX_circulo(CIRCULO c, double x);
+bool setX_circulo(CIRCULO c, const double x);
 
 /// @brief atribui uma coordenada y ao círculo
 /// @param c círculo
 /// @param y coordenada y
 /// @return true se a operação foi bem sucedida; false se c == NULL
-bool setY_circulo(CIRCULO c, double y);
+bool setY_circulo(CIRCULO c, const double y);
 
 /// @brief atribui um raio ao círculo
 /// @param c círculo
 /// @param r raio
 /// @return true se a operação foi bem sucedida; false se c == NULL || r <= 0
-bool setR_circulo(CIRCULO c, double r);
+bool setR_circulo(CIRCULO c, const double r);
 
 /// @brief atribui uma cor de borda ao círculo
 /// @param c círculo
@@ -115,5 +115,9 @@ bool setCORB_circulo(CIRCULO c, const char* corb);
 bool setCORP_circulo(CIRCULO c, const char* corp);
 
 /* ===================== */
+
+/// @brief transforma círculo em anteparo
+/// @param c círculo
+void anteparo_circulo(CIRCULO c);
 
 #endif
