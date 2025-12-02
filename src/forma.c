@@ -27,7 +27,7 @@ typedef struct stForma{
 } stForma;
 
 FORMA criar_forma(char tipo, void* handle){
-    if (!handle || (tipo != 'c' && tipo != 'r' && tipo != 't' && tipo != 'l')) return NULL;
+    if (!handle || (tipo != 'c' && tipo != 'r' && tipo != 't' && tipo != 'l' && tipo != 'a')) return NULL;
 
     stForma* forma = malloc(sizeof(stForma));
     if (!forma) return NULL;
@@ -56,6 +56,7 @@ void destruir_forma(FORMA *f){
         case 'c': destruir_circulo((CIRCULO*)&forma->handle); break;
         case 'r': destruir_retangulo((RETANGULO*)&forma->handle); break;
         case 't': destruir_texto((TEXTO*)&forma->handle); break;
+        case 'a':
         case 'l': destruir_linha((LINHA*)&forma->handle); break;
     }
     
@@ -71,6 +72,7 @@ double area_forma(FORMA f){
         case 'c': return area_circulo(forma->handle);
         case 'r': return area_retangulo(forma->handle);
         case 't': return area_texto(forma->handle);
+        case 'a':
         case 'l': return area_linha(forma->handle);
         default: return 0.0;
     }
@@ -87,6 +89,7 @@ int getI_forma(FORMA f){
         case 'c': return getI_circulo(forma->handle);
         case 'r': return getI_retangulo(forma->handle);
         case 't': return getI_texto(forma->handle);
+        case 'a':
         case 'l': return getI_linha(forma->handle); 
         default: return - 1;
     }
@@ -115,6 +118,7 @@ bool getXY_forma(FORMA f, double *x, double *y){
         case 'c': *x = getX_circulo(forma->handle); *y = getY_circulo(forma->handle); break;
         case 'r': *x = getX_retangulo(forma->handle); *y = getY_retangulo(forma->handle); break;
         case 't': *x = getX_texto(forma->handle); *y = getY_texto(forma->handle); break;
+        case 'a':
         case 'l': *x = getX1_linha(forma->handle); *y = getY1_linha(forma->handle); break;
         default: return false;
     }
@@ -131,6 +135,7 @@ bool setXY_forma(FORMA f, const double x, const double y){
         case 'c': return setX_circulo(forma->handle, x) && setY_circulo(forma->handle, y);
         case 'r': return setX_retangulo(forma->handle, x) && setY_retangulo(forma->handle, y);
         case 't': return setX_texto(forma->handle, x) && setY_texto(forma->handle, y);
+        case 'a':
         case 'l': {
                 double x1 = getX1_linha(forma->handle);
                 double y1 = getY1_linha(forma->handle);
@@ -535,6 +540,7 @@ bool sobrepoe_formas(FORMA a, FORMA b){
         switch (B->tipo){
         case 'c': return sob_cc(a, b);
         case 'r': return sob_cr(a, b);
+        case 'a':
         case 'l': return sob_cl(a, b);
         case 't': return sob_ct(a, b);
         default: break;
@@ -545,6 +551,7 @@ bool sobrepoe_formas(FORMA a, FORMA b){
         switch (B->tipo){
         case 'c': return sob_cr(b, a);
         case 'r': return sob_rr(a, b);
+        case 'a':
         case 'l': return sob_rl(a, b);
         case 't': return sob_rt(a, b);
         default: break;
@@ -554,7 +561,8 @@ bool sobrepoe_formas(FORMA a, FORMA b){
     case 'l': 
         switch (B->tipo){
         case 'c': return sob_cl(b, a); 
-        case 'r': return sob_rl(b, a); 
+        case 'r': return sob_rl(b, a);
+        case 'a':
         case 'l': return sob_ll(a, b);
         case 't': return sob_lt(a, b);
         default: break;
@@ -564,7 +572,8 @@ bool sobrepoe_formas(FORMA a, FORMA b){
     case 't': 
         switch (B->tipo){
         case 'c': return sob_ct(b, a); 
-        case 'r': return sob_rt(b, a); 
+        case 'r': return sob_rt(b, a);
+        case 'a':
         case 'l': return sob_lt(b, a); 
         case 't': return sob_tt(a, b);
         default: break;
@@ -608,6 +617,7 @@ FORMA clonar_forma(FORMA f){
             return criar_forma('r', r);
         }
 
+        case 'a':
         case 'l': {
             double x1 = getX1_linha(hand);
             double y1 = getY1_linha(hand);
@@ -744,6 +754,7 @@ void trocar_cores(FORMA i, FORMA j){
         case 'c': src = getCORP_circulo(getHandle_forma(i)); break;
         case 'r': src = getCORP_retangulo(getHandle_forma(i)); break;
         case 't': src = getCORP_texto(getHandle_forma(i));    break;
+        case 'a':
         case 'l': {
             orig = getCOR_linha(getHandle_forma(i));      
             char comp [8];
@@ -756,6 +767,7 @@ void trocar_cores(FORMA i, FORMA j){
         case 'c': setCORB_circulo(getHandle_forma(j), src); break;
         case 'r': setCORB_retangulo(getHandle_forma(j), src); break;
         case 't': setCORB_texto(getHandle_forma(j), src); break;
+        case 'a':
         case 'l': setCOR_linha(getHandle_forma(j), src); break; 
     }
 }
@@ -794,6 +806,7 @@ void inverter_cores(FORMA f){
             free(b); free(p);
         } break;
 
+        case 'a':
         case 'l': default:
             
         break;

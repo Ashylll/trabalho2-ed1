@@ -13,6 +13,7 @@
       'r' = retângulo
       't' = texto
       'l' = linha
+      'a' = anteparo (linha)
 
 */
 
@@ -53,7 +54,7 @@ int getI_forma(FORMA f);
 /// @brief retorna o tipo da forma
 /// @param f forma
 /// @pre f != NULL
-/// @return caractere para o tipo ('c', 'r', 't', 'l')
+/// @return caractere para o tipo ('c', 'r', 't', 'l', 'a')
 char getTipo_forma(FORMA f);
 
 /// @brief retorna o handle da forma

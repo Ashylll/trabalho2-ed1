@@ -5,7 +5,7 @@
 
 /*
     lista.h
-    Módulo responsável pela implementação da lista ligada (armazaena formas)
+    Módulo responsável pela implementação da lista ligada (armazaena formas e anteparos)
 
 */
 
@@ -28,12 +28,6 @@ void comando_destruicao(const double x, const double y, const char sfx);
 void comando_pintura(const double x, const double y, const char *cor, const char sfx);
 
 void comando_clonagem(const double x, const double y, const double dx, const double dy, const char sfx);
-
-
-
-
-
-
 
 
 
